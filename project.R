@@ -24,3 +24,21 @@ Normalize <- function(gpa) {
     gpa <- 4
   return(gpa)
 }
+
+
+##Xuan Chen
+##Converting year to age
+applydata$DOB <- as.POSIXct(strptime(applydata$Date.Of.Birth, "%m/%d/%y %H:%M"))
+
+calc_age <- function(birthDate, refDate = Sys.Date()) {
+  
+  require(lubridate)
+  
+  period <- as.period(new_interval(birthDate, refDate),
+                      unit = "year")
+  
+  period$year
+  
+}
+
+applydata$DOB<-calc_age(applydata$DOB)
