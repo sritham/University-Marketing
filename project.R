@@ -16,3 +16,11 @@ Admited <- subset(data, data$Status == "4-Admits")
 AdmitedW <- subset(Admited, Admited$Gender == "Female")
 
 summary(AdmitedW)
+
+Normalize <- function(gpa) {
+  if (gpa > 5)
+    gpa <- (gpa/100)*4
+  else if (gpa > 4 & gpa <= 5)
+    gpa <- 4
+  return(gpa)
+}
