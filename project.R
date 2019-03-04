@@ -18,12 +18,17 @@ AdmitedW <- subset(Admited, Admited$Gender == "Female")
 summary(AdmitedW)
 
 Normalize <- function(gpa) {
-  if (gpa > 5)
-    gpa <- (gpa/100)*4
-  else if (gpa > 4 & gpa <= 5)
-    gpa <- 4
-  return(gpa)
+    if (gpa > 5)
+      gpa = (gpa/100)*4
+    else if (gpa > 4 & gpa <= 5)
+      gpa = 4
+    return(gpa)
 }
+
+
+HSC.GPA <- as.numeric(as.character(AdmitedNursing$Hs.Gpa))
+GPA2 <- na.omit(HSC.GPA) ##Omit NA value
+GPAnormal <- sapply(GPA2, Normalize)
 
 
 ##Xuan Chen
