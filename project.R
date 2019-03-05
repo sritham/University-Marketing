@@ -46,3 +46,31 @@ calc_age <- function(birthDate, refDate = Sys.Date()) {
 }
 
 applydata$DOB<-calc_age(applydata$DOB)
+
+
+
+
+
+#Source code-Source Name
+
+RIV_users <- read.csv('RIV Users.csv', na.strings = c(""))
+RIV_sources <- read.csv('RIV_sources.csv', na.strings = c(""))
+RIV_sourceAndNames <- read.csv("RIV sources ID and names.csv", na.strings = c(""))
+
+
+library("plyr")
+library("dplyr")
+
+data2<- left_join(RIV_sources,RIV_sourceAndNames, by = c("first_source_code" = "source_id"))
+data2$first_source_code<-data2$ssource_name
+data3<- left_join(RIV_sources,RIV_sourceAndNames, by = c("second_source_code" = "source_id"))
+data2$second_source_code<-data3$ssource_name
+data4<- left_join(RIV_sources,RIV_sourceAndNames, by = c("third_source_code" = "source_id"))
+data2$third_source_code<-data4$ssource_name
+data5<- left_join(RIV_sources,RIV_sourceAndNames, by = c("forth_source_code" = "source_id"))
+data2$forth_source_code<-data5$ssource_name
+data6<- left_join(RIV_sources,RIV_sourceAndNames, by = c("fifth_source_code" = "source_id"))
+data2$fifth_source_code<-data6$ssource_name
+
+data <- left_join(RIV_users,RIV_sources, by = c("Element.Id" = "element_id"))
+
