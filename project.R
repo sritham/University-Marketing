@@ -74,3 +74,25 @@ data2$fifth_source_code<-data6$ssource_name
 
 data <- left_join(RIV_users,RIV_sources, by = c("Element.Id" = "element_id"))
 
+
+
+First source: 
+CollegeBoard 86013/131118
+
+Second Source:
+250OK  843/4314
+
+Third Source:
+Royall Spring Search    3598/7168
+
+Forth Source:
+Common App 169/623
+
+Fifth Source:
+Common App 74/282
+
+
+
+
+
+
